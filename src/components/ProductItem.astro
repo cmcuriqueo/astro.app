@@ -1,0 +1,27 @@
+---
+import { Image, Picture } from '@astrojs/image/components';
+
+export interface Props {
+    title: string,
+    images: string[],
+    id: number
+
+}
+
+const {
+    title,
+    images,
+    id
+} = Astro.props;
+---
+
+<a href={`/${id}`} class="hover:scale-105 inline-block transition-all hover:constrast-125 hover:shadow-2xl">
+    <Picture src={images[0]} widths={[400, 800, 1200]} aspectRatio="1:1"
+        alt={`Producto ${title}`}
+        class="aspect-[389/500] h-full object-cover w-full max-w-full rounded" 
+        style={`view-transition-name: book-${id}`}
+    >
+
+
+</a>
+<p class=" text-black uppercase text-1xl text-center md:text-1xl py-4 px-4 mb-4">{title}</p>
